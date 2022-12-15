@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif !important;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 255, 255, 0.082);
+}
+
+.form {
+    background-color: white;
+    width: 450px;
+    border-radius: 8px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.btn-light {
+    background-color: #bebbbb !important;
+}
+
+.btn-primary {
+    background-color: midnightblue !important;
+    border-color: midnightblue !important;
+    transition: .3s ease-in;
+}
+
+label {
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px midnightblue;
+}
+
+.btn-light:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #bebbbb;
+}
+
+.form-step {
+    display: none;
+    animation: animate .5s;
+}
+
+.form-step-active {
+    display: block;
+}
+
+.progress_bar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    counter-reset: step;
+}
+
+.progress_bar::before, .progress_indicator {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #bebbbb;
+    /* z-index: -1; */
+}
+
+.progress_indicator {
+    background-color: midnightblue;
+    width: 0%;
+    transition: .3s ease-in;
+}
+
+.progress-steps {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 30px;
+    border-radius: 2px;
+    font-weight: 500;
+    background-color: #bebbbb;
+}
+
+.progress-steps::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #bebbbb;
+}
+
+.progress-steps-active {
+    background-color: midnightblue;
+    color: white;
+}
+
+@keyframes animate {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.progress-steps-active::after {
+    color: midnightblue;
+}
+
+.progress-steps::before {
+    counter-increment: step;
+    content: counter(step);
+}
